@@ -1,7 +1,8 @@
+//server/routes/routes.js
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
-var Emotioninputs = require('../../models/emotioninputs');
+var Expense = require('../../models/Expense');
 
 router.get('/', function(req, res){
   res.render('index')
@@ -9,17 +10,16 @@ router.get('/', function(req, res){
 
 router.route('/insert')
 .post(function(req,res) {
- var emotions = new Emotioninputs() ;
-  emotions.rad = req.body.rads;
-  emotions.good = req.body.goods;
-  emotions.meh = req.body.mehs;
-  emotions.bad = req.body.bads;
-  emotions.awful=req.body.awfuls;
-emotions.save(function(err) {
-      if (err)
-        res.send(err);
-      res.send('Thank you for you time!');
-  });
+ var expense = new Expense();
+  expense.description = req.body.desc;
+  expense.amount = req.body.amount;
+ 
+  expense.save(function(err) {
+    if (err)
+      res.send(err);
+    res.send('Expense successfully added!');
+});
 })
+
 
 module.exports = router;

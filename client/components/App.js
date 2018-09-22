@@ -1,104 +1,135 @@
 //client/components/App.js
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
-import logo from './Good.jpg';
-
+import {Grid, Button, Row, Col, Image, Jumbotron} from 'react-bootstrap';
+var querystring = require('querystring');
 export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      tmemberemotion: '',
-      teamsemotion:'',
+      description: '',
+      amount: '',
+      month: '',
+      year: '',
       messageFromServer: '',
-      modalIsOpen: false
+      
     }
-    
     this.onClick = this.onClick.bind(this);
-    this.insertNewEmotions = this.insertNewEmotions.bind(this);
-  }
-  onClick(e) {
-    this.insertNewEmotions(this);
+    this.handleTextChange = this.handleTextChange.bind(this);
+    this.insertNewExpense = this.insertNewExpense.bind(this);
   }
 
-  
-  insertNewEmotions(e) {
+  handleTextChange(e) {
+    if (e.target.name == "description") {
+      this.setState({
+        description: e.target.value
+      });
+    }
+if (e.target.name == "amount") {
+      this.setState({
+        amount: e.target.value
+      });
+    }
+  }
+
+  onClick(emo) {
+    this.setState({
+      description: emo
+    });
+    this.insertNewExpense(emo);
+    console.log(emo)
+  }
+insertNewExpense(emot) {
+  var result='added'
     axios.post('/insert',
       querystring.stringify({
-        tmemberemotion: tmemberemotion,
-        teamsemotion: ''
+        desc: emot,
+        amount: 1014
+       
       }), {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         }
       }).then(function(response) {
-      e.setState({
-        messageFromServer: response.data
-      });
+      
+        this.setState({
+          messageFromServer: response
+        });
+        result=response.data
+       // this.setState.messageFromServer= response.data
+     
     });
+    console.log(result)
   }
-handleImageChange(e) {
-    if (e.target.id == "rad") {
-      this.setState({
-        tmemberemotion: e.target.id
-      });
-    }
-if (e.target.id == "good") {
-      this.setState({
-        tmemberemotion: e.target.id
-      });
-    }
-    if (e.target.id == "meh") {
-      this.setState({
-        tmemberemotion: e.target.id
-      });
-    }
-    if (e.target.id == "bad") {
-      this.setState({
-        tmemberemotion: e.target.id
-      });
-    }
-    if (e.target.id == "awful") {
-      this.setState({
-        tmemberemotion: e.target.id
-      });
-    }
-  }
-        render() {
-    return (
-      <div>
-        
-        <table>
-               <tbody>
-                 <td>
-                  
-                 </td>
-                  <td className='desc-col'>
-                  <tr><img src={logo} alt="logo" id="rad" className="img-circle" name="emotionimage" onClick="{handleImageChange}"/></tr>
-                  <tr>Rad</tr>
-                  </td>
-                  <td className='desc-col'>
-                  <tr><img src={logo} alt="logo" id="good" name="emotionimage" onClick="{handleImageChange}"/></tr>
-                  <tr>Good</tr>
-                  </td>
-                  <td className='desc-col'>
-                  <tr><img src={logo} alt="logo" id="meh" name="emotionimage" onClick="{handleImageChange}"/></tr>
-                  <tr>Meh</tr>
-                  </td>
-                  <td className='desc-col'>
-                  <tr><img src={logo} alt="logo" id="bad" name="emotionimage" onClick="{handleImageChange}"/></tr>
-                  <tr>Bad</tr>
-                  </td>
-                  <td className='desc-col'>
-                  <tr><img src={logo} alt="logo" id="awful" name="emotionimage" onClick="{handleImageChange}"/></tr>
-                  <tr>Awful</tr>
-                  </td>
 
-                  <tr><input type="submit" class="btn btn-info" value="Submit Emotions" onClick="{this.onClick}"/></tr>
-                                  
-          </tbody>
-        </table>
-      </div>
-    );
-  }
+
+
+render() {
+   if(this.state.messageFromServer == ''){
+      return (
+        <div>
+         
+
+<fieldset>
+       {/* <label for="description">Description:</label><input type="text" id="description" name="description" value={this.state.description} onChange={this.handleTextChange}></input> */}
+       <label for="amount">Amount:</label><input type="number" id="amount" name="amount" value={this.state.amount} onChange={this.handleTextChange}></input>
+       
+      </fieldset>
+      <Grid>
+          <h2>Happiness Tracker</h2>
+          <Jumbotron>
+            <p>Hey, How are you feeling?</p>
+          </Jumbotron>
+          <Row className="show-grid text-center">
+              <Col xs={12} sm={4} className="peerson-wrapper">
+              <Image id="description" src="images/VeryHappy.jpg" circle className="profile-pic" onClick={() => {this.onClick("Very Happy")}}></Image>
+              <h5>Very Happy</h5>
+              </Col>
+              <Col xs={12} sm={4} className="person-wrapper">
+              <Image src="images/Scared.jpg" circle className="profile-pic" onClick={function(){this.onClick("Scared")}}></Image>
+              <h5>Scared</h5>
+              </Col>
+              <Col xs={12} sm={4} className="person-wrapper">
+              <Image src="images/Angry.jpg" circle className="profile-pic" onClick={function(){this.onClick("Angry")}}></Image>
+              <h5>Angry</h5>
+              </Col>
+              <Col xs={12} sm={4} className="person-wrapper">
+              <Image src="images/VeryBad.jpg" circle className="profile-pic" onClick={function(){this.onClick("VeryBad")}}></Image>
+              <h5>Very Bad</h5>
+              </Col>
+              <Col xs={12} sm={4} className="person-wrapper">
+              <Image src="images/Sad.jpg" circle className="profile-pic" onClick={function(){this.onClick("Sad")}}></Image>
+              <h5>Sad</h5>
+              </Col>
+              <Col xs={12} sm={4} className="person-wrapper">
+              <Image src="images/Crying.jpg" circle className="profile-pic" onClick={function(){this.onClick("Crying")}}></Image>
+              <h5>Crying</h5>
+              </Col>
+            </Row>
+                
+          
+        </Grid>
+      
+<div className='button-center'>
+        <br/>
+        <Button bsStyle="success" bsSize="small" onClick={this.onClick}>Add New Expense</Button>
+       </div>
+        </div>
+      )
+   }
+   else{
+    return (
+     <div>
+       
+<div className='button-center'>
+        <h3>{this.state.messageFromServer}</h3>
+        
+       </div>
+       </div>
+     )
+    }
+   }
 }
+
+
+ 
