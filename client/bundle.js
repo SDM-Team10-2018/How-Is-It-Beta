@@ -34141,12 +34141,11 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
     _this.state = {
-      description: '',
-      amount: '',
-      month: '',
-      year: '',
-      messageFromServer: ''
-
+      description: "",
+      amount: "",
+      month: "",
+      year: "",
+      messageFromServer: ""
     };
     _this.onClick = _this.onClick.bind(_this);
     _this.handleTextChange = _this.handleTextChange.bind(_this);
@@ -34155,7 +34154,7 @@ var App = function (_React$Component) {
   }
 
   _createClass(App, [{
-    key: 'handleTextChange',
+    key: "handleTextChange",
     value: function handleTextChange(e) {
       if (e.target.name == "description") {
         this.setState({
@@ -34169,30 +34168,28 @@ var App = function (_React$Component) {
       }
     }
   }, {
-    key: 'onClick',
+    key: "onClick",
     value: function onClick(emo) {
       this.setState({
         description: emo
       });
-      this.insertNewExpense(emo);
+      this.insertNewExpense(emo, this);
       console.log(emo);
     }
   }, {
-    key: 'insertNewExpense',
-    value: function insertNewExpense(emot) {
-      var result = 'added';
-      _axios2.default.post('/insert', querystring.stringify({
+    key: "insertNewExpense",
+    value: function insertNewExpense(emot, e) {
+      var result = "added";
+      _axios2.default.post("/insert", querystring.stringify({
         desc: emot,
         amount: 1014
-
       }), {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         }
       }).then(function (response) {
-
-        this.setState({
-          messageFromServer: response
+        e.setState({
+          messageFromServer: response.data
         });
         result = response.data;
         // this.setState.messageFromServer= response.data
@@ -34200,138 +34197,175 @@ var App = function (_React$Component) {
       console.log(result);
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       var _this2 = this;
 
-      if (this.state.messageFromServer == '') {
+      if (this.state.messageFromServer == "") {
         return _react2.default.createElement(
-          'div',
+          "div",
           null,
           _react2.default.createElement(
-            'fieldset',
+            "fieldset",
             null,
             _react2.default.createElement(
-              'label',
-              { 'for': 'amount' },
-              'Amount:'
+              "label",
+              { "for": "amount" },
+              "Amount:"
             ),
-            _react2.default.createElement('input', { type: 'number', id: 'amount', name: 'amount', value: this.state.amount, onChange: this.handleTextChange })
+            _react2.default.createElement("input", {
+              type: "number",
+              id: "amount",
+              name: "amount",
+              value: this.state.amount,
+              onChange: this.handleTextChange
+            })
           ),
           _react2.default.createElement(
             _reactBootstrap.Grid,
             null,
             _react2.default.createElement(
-              'h2',
+              "h2",
               null,
-              'Happiness Tracker'
+              "Happiness Tracker"
             ),
             _react2.default.createElement(
               _reactBootstrap.Jumbotron,
               null,
               _react2.default.createElement(
-                'p',
+                "p",
                 null,
-                'Hey, How are you feeling?'
+                "Hey, How are you feeling?"
               )
             ),
             _react2.default.createElement(
               _reactBootstrap.Row,
-              { className: 'show-grid text-center' },
+              { className: "show-grid text-center" },
               _react2.default.createElement(
                 _reactBootstrap.Col,
-                { xs: 12, sm: 4, className: 'peerson-wrapper' },
-                _react2.default.createElement(_reactBootstrap.Image, { id: 'description', src: 'images/VeryHappy.jpg', circle: true, className: 'profile-pic', onClick: function onClick() {
+                { xs: 12, sm: 4, className: "peerson-wrapper" },
+                _react2.default.createElement(_reactBootstrap.Image, {
+                  id: "description",
+                  src: "images/VeryHappy.jpg",
+                  circle: true,
+                  className: "profile-pic",
+                  onClick: function onClick() {
                     _this2.onClick("Very Happy");
-                  } }),
+                  }
+                }),
                 _react2.default.createElement(
-                  'h5',
+                  "h5",
                   null,
-                  'Very Happy'
+                  "Very Happy"
                 )
               ),
               _react2.default.createElement(
                 _reactBootstrap.Col,
-                { xs: 12, sm: 4, className: 'person-wrapper' },
-                _react2.default.createElement(_reactBootstrap.Image, { src: 'images/Scared.jpg', circle: true, className: 'profile-pic', onClick: function onClick() {
+                { xs: 12, sm: 4, className: "person-wrapper" },
+                _react2.default.createElement(_reactBootstrap.Image, {
+                  src: "images/Scared.jpg",
+                  circle: true,
+                  className: "profile-pic",
+                  onClick: function onClick() {
                     this.onClick("Scared");
-                  } }),
+                  }
+                }),
                 _react2.default.createElement(
-                  'h5',
+                  "h5",
                   null,
-                  'Scared'
+                  "Scared"
                 )
               ),
               _react2.default.createElement(
                 _reactBootstrap.Col,
-                { xs: 12, sm: 4, className: 'person-wrapper' },
-                _react2.default.createElement(_reactBootstrap.Image, { src: 'images/Angry.jpg', circle: true, className: 'profile-pic', onClick: function onClick() {
+                { xs: 12, sm: 4, className: "person-wrapper" },
+                _react2.default.createElement(_reactBootstrap.Image, {
+                  src: "images/Angry.jpg",
+                  circle: true,
+                  className: "profile-pic",
+                  onClick: function onClick() {
                     this.onClick("Angry");
-                  } }),
+                  }
+                }),
                 _react2.default.createElement(
-                  'h5',
+                  "h5",
                   null,
-                  'Angry'
+                  "Angry"
                 )
               ),
               _react2.default.createElement(
                 _reactBootstrap.Col,
-                { xs: 12, sm: 4, className: 'person-wrapper' },
-                _react2.default.createElement(_reactBootstrap.Image, { src: 'images/VeryBad.jpg', circle: true, className: 'profile-pic', onClick: function onClick() {
+                { xs: 12, sm: 4, className: "person-wrapper" },
+                _react2.default.createElement(_reactBootstrap.Image, {
+                  src: "images/VeryBad.jpg",
+                  circle: true,
+                  className: "profile-pic",
+                  onClick: function onClick() {
                     this.onClick("VeryBad");
-                  } }),
+                  }
+                }),
                 _react2.default.createElement(
-                  'h5',
+                  "h5",
                   null,
-                  'Very Bad'
+                  "Very Bad"
                 )
               ),
               _react2.default.createElement(
                 _reactBootstrap.Col,
-                { xs: 12, sm: 4, className: 'person-wrapper' },
-                _react2.default.createElement(_reactBootstrap.Image, { src: 'images/Sad.jpg', circle: true, className: 'profile-pic', onClick: function onClick() {
+                { xs: 12, sm: 4, className: "person-wrapper" },
+                _react2.default.createElement(_reactBootstrap.Image, {
+                  src: "images/Sad.jpg",
+                  circle: true,
+                  className: "profile-pic",
+                  onClick: function onClick() {
                     this.onClick("Sad");
-                  } }),
+                  }
+                }),
                 _react2.default.createElement(
-                  'h5',
+                  "h5",
                   null,
-                  'Sad'
+                  "Sad"
                 )
               ),
               _react2.default.createElement(
                 _reactBootstrap.Col,
-                { xs: 12, sm: 4, className: 'person-wrapper' },
-                _react2.default.createElement(_reactBootstrap.Image, { src: 'images/Crying.jpg', circle: true, className: 'profile-pic', onClick: function onClick() {
+                { xs: 12, sm: 4, className: "person-wrapper" },
+                _react2.default.createElement(_reactBootstrap.Image, {
+                  src: "images/Crying.jpg",
+                  circle: true,
+                  className: "profile-pic",
+                  onClick: function onClick() {
                     this.onClick("Crying");
-                  } }),
+                  }
+                }),
                 _react2.default.createElement(
-                  'h5',
+                  "h5",
                   null,
-                  'Crying'
+                  "Crying"
                 )
               )
             )
           ),
           _react2.default.createElement(
-            'div',
-            { className: 'button-center' },
-            _react2.default.createElement('br', null),
+            "div",
+            { className: "button-center" },
+            _react2.default.createElement("br", null),
             _react2.default.createElement(
               _reactBootstrap.Button,
-              { bsStyle: 'success', bsSize: 'small', onClick: this.onClick },
-              'Add New Expense'
+              { bsStyle: "success", bsSize: "small", onClick: this.onClick },
+              "Add New Expense"
             )
           )
         );
       } else {
         return _react2.default.createElement(
-          'div',
+          "div",
           null,
           _react2.default.createElement(
-            'div',
-            { className: 'button-center' },
+            "div",
+            { className: "button-center" },
             _react2.default.createElement(
-              'h3',
+              "h3",
               null,
               this.state.messageFromServer
             )

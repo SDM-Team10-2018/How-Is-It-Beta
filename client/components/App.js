@@ -1,19 +1,18 @@
 //client/components/App.js
-import React from 'react';
-import axios from 'axios';
-import {Grid, Button, Row, Col, Image, Jumbotron} from 'react-bootstrap';
-var querystring = require('querystring');
+import React from "react";
+import axios from "axios";
+import { Grid, Button, Row, Col, Image, Jumbotron } from "react-bootstrap";
+var querystring = require("querystring");
 export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      description: '',
-      amount: '',
-      month: '',
-      year: '',
-      messageFromServer: '',
-      
-    }
+      description: "",
+      amount: "",
+      month: "",
+      year: "",
+      messageFromServer: ""
+    };
     this.onClick = this.onClick.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
     this.insertNewExpense = this.insertNewExpense.bind(this);
@@ -25,7 +24,7 @@ export default class App extends React.Component {
         description: e.target.value
       });
     }
-if (e.target.name == "amount") {
+    if (e.target.name == "amount") {
       this.setState({
         amount: e.target.value
       });
@@ -36,100 +35,141 @@ if (e.target.name == "amount") {
     this.setState({
       description: emo
     });
-    this.insertNewExpense(emo);
-    console.log(emo)
+    this.insertNewExpense(emo, this);
+    console.log(emo);
   }
-insertNewExpense(emot) {
-  var result='added'
-    axios.post('/insert',
-      querystring.stringify({
-        desc: emot,
-        amount: 1014
-       
-      }), {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
+  insertNewExpense(emot, e) {
+    var result = "added";
+    axios
+      .post(
+        "/insert",
+        querystring.stringify({
+          desc: emot,
+          amount: 1014
+        }),
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
         }
-      }).then(function(response) {
-      
-        this.setState({
-          messageFromServer: response
+      )
+      .then(function(response) {
+        e.setState({
+          messageFromServer: response.data
         });
-        result=response.data
-       // this.setState.messageFromServer= response.data
-     
-    });
-    console.log(result)
+        result = response.data;
+        // this.setState.messageFromServer= response.data
+      });
+    console.log(result);
   }
 
-
-
-render() {
-   if(this.state.messageFromServer == ''){
+  render() {
+    if (this.state.messageFromServer == "") {
       return (
         <div>
-         
-
-<fieldset>
-       {/* <label for="description">Description:</label><input type="text" id="description" name="description" value={this.state.description} onChange={this.handleTextChange}></input> */}
-       <label for="amount">Amount:</label><input type="number" id="amount" name="amount" value={this.state.amount} onChange={this.handleTextChange}></input>
-       
-      </fieldset>
-      <Grid>
-          <h2>Happiness Tracker</h2>
-          <Jumbotron>
-            <p>Hey, How are you feeling?</p>
-          </Jumbotron>
-          <Row className="show-grid text-center">
+          <fieldset>
+            {/* <label for="description">Description:</label><input type="text" id="description" name="description" value={this.state.description} onChange={this.handleTextChange}></input> */}
+            <label for="amount">Amount:</label>
+            <input
+              type="number"
+              id="amount"
+              name="amount"
+              value={this.state.amount}
+              onChange={this.handleTextChange}
+            />
+          </fieldset>
+          <Grid>
+            <h2>Happiness Tracker</h2>
+            <Jumbotron>
+              <p>Hey, How are you feeling?</p>
+            </Jumbotron>
+            <Row className="show-grid text-center">
               <Col xs={12} sm={4} className="peerson-wrapper">
-              <Image id="description" src="images/VeryHappy.jpg" circle className="profile-pic" onClick={() => {this.onClick("Very Happy")}}></Image>
-              <h5>Very Happy</h5>
+                <Image
+                  id="description"
+                  src="images/VeryHappy.jpg"
+                  circle
+                  className="profile-pic"
+                  onClick={() => {
+                    this.onClick("Very Happy");
+                  }}
+                />
+                <h5>Very Happy</h5>
               </Col>
               <Col xs={12} sm={4} className="person-wrapper">
-              <Image src="images/Scared.jpg" circle className="profile-pic" onClick={function(){this.onClick("Scared")}}></Image>
-              <h5>Scared</h5>
+                <Image
+                  src="images/Scared.jpg"
+                  circle
+                  className="profile-pic"
+                  onClick={function() {
+                    this.onClick("Scared");
+                  }}
+                />
+                <h5>Scared</h5>
               </Col>
               <Col xs={12} sm={4} className="person-wrapper">
-              <Image src="images/Angry.jpg" circle className="profile-pic" onClick={function(){this.onClick("Angry")}}></Image>
-              <h5>Angry</h5>
+                <Image
+                  src="images/Angry.jpg"
+                  circle
+                  className="profile-pic"
+                  onClick={function() {
+                    this.onClick("Angry");
+                  }}
+                />
+                <h5>Angry</h5>
               </Col>
               <Col xs={12} sm={4} className="person-wrapper">
-              <Image src="images/VeryBad.jpg" circle className="profile-pic" onClick={function(){this.onClick("VeryBad")}}></Image>
-              <h5>Very Bad</h5>
+                <Image
+                  src="images/VeryBad.jpg"
+                  circle
+                  className="profile-pic"
+                  onClick={function() {
+                    this.onClick("VeryBad");
+                  }}
+                />
+                <h5>Very Bad</h5>
               </Col>
               <Col xs={12} sm={4} className="person-wrapper">
-              <Image src="images/Sad.jpg" circle className="profile-pic" onClick={function(){this.onClick("Sad")}}></Image>
-              <h5>Sad</h5>
+                <Image
+                  src="images/Sad.jpg"
+                  circle
+                  className="profile-pic"
+                  onClick={function() {
+                    this.onClick("Sad");
+                  }}
+                />
+                <h5>Sad</h5>
               </Col>
               <Col xs={12} sm={4} className="person-wrapper">
-              <Image src="images/Crying.jpg" circle className="profile-pic" onClick={function(){this.onClick("Crying")}}></Image>
-              <h5>Crying</h5>
+                <Image
+                  src="images/Crying.jpg"
+                  circle
+                  className="profile-pic"
+                  onClick={function() {
+                    this.onClick("Crying");
+                  }}
+                />
+                <h5>Crying</h5>
               </Col>
             </Row>
-                
-          
-        </Grid>
-      
-<div className='button-center'>
-        <br/>
-        <Button bsStyle="success" bsSize="small" onClick={this.onClick}>Add New Expense</Button>
-       </div>
+          </Grid>
+
+          <div className="button-center">
+            <br />
+            <Button bsStyle="success" bsSize="small" onClick={this.onClick}>
+              Add New Expense
+            </Button>
+          </div>
         </div>
-      )
-   }
-   else{
-    return (
-     <div>
-       
-<div className='button-center'>
-        <h3>{this.state.messageFromServer}</h3>
-        
-       </div>
-       </div>
-     )
+      );
+    } else {
+      return (
+        <div>
+          <div className="button-center">
+            <h3>{this.state.messageFromServer}</h3>
+          </div>
+        </div>
+      );
     }
-   }
+  }
 }
-
-
- 
