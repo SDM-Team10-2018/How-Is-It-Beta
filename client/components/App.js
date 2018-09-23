@@ -14,22 +14,11 @@ export default class App extends React.Component {
       messageFromServer: ""
     };
     this.onClick = this.onClick.bind(this);
-    this.handleTextChange = this.handleTextChange.bind(this);
-    this.insertNewExpense = this.insertNewExpense.bind(this);
+    //this.handleTextChange = this.handleTextChange.bind(this);
+    //this.insertNewExpense = this.insertNewExpense.bind(this);
   }
 
-  handleTextChange(e) {
-    if (e.target.name == "description") {
-      this.setState({
-        description: e.target.value
-      });
-    }
-    if (e.target.name == "amount") {
-      this.setState({
-        amount: e.target.value
-      });
-    }
-  }
+  
 
   onClick(emo) {
     this.setState({
@@ -45,7 +34,7 @@ export default class App extends React.Component {
         "/insert",
         querystring.stringify({
           desc: emot,
-          amount: 1014
+          amount: 1018
         }),
         {
           headers: {
@@ -90,7 +79,7 @@ export default class App extends React.Component {
                   src="images/Scared.jpg"
                   circle
                   className="profile-pic" width="50px" height="50px"
-                  onClick={function() {
+                  onClick={() => {
                     this.onClick("Scared");
                   }}
                 />
@@ -101,7 +90,7 @@ export default class App extends React.Component {
                   src="images/Angry.jpg"
                   circle
                   className="profile-pic" width="50px" height="50px"
-                  onClick={function() {
+                  onClick={() => {
                     this.onClick("Angry");
                   }}
                 />
@@ -112,7 +101,7 @@ export default class App extends React.Component {
                   src="images/VeryBad.jpg"
                   circle
                   className="profile-pic" width="50px" height="50px"
-                  onClick={function() {
+                  onClick={() => {
                     this.onClick("VeryBad");
                   }}
                 />
@@ -123,7 +112,7 @@ export default class App extends React.Component {
                   src="images/Sad.jpg"
                   circle
                   className="profile-pic" width="50px" height="50px"
-                  onClick={function() {
+                  onClick={() => {
                     this.onClick("Sad");
                   }}
                 />
@@ -134,7 +123,7 @@ export default class App extends React.Component {
                   src="images/Crying.jpg"
                   circle
                   className="profile-pic" width="50px" height="50px"
-                  onClick={function() {
+                  onClick={() => {
                     this.onClick("Crying");
                   }}
                 />
@@ -143,12 +132,14 @@ export default class App extends React.Component {
             </Row>
           </Grid>
 
-          <div className="button-center">
+          {/* <div className="button-center">
             <br />
-            <Button bsStyle="success" bsSize="small" onClick={this.onClick}>
+            <Button bsStyle="success" bsSize="small" onClick={() => {
+                    this.onClick("Submit");
+                  }} >
               Save Your Emotions
             </Button>
-          </div>
+          </div> */}
         </div>
       );
     } else {

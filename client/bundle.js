@@ -34148,26 +34148,12 @@ var App = function (_React$Component) {
       messageFromServer: ""
     };
     _this.onClick = _this.onClick.bind(_this);
-    _this.handleTextChange = _this.handleTextChange.bind(_this);
-    _this.insertNewExpense = _this.insertNewExpense.bind(_this);
+    //this.handleTextChange = this.handleTextChange.bind(this);
+    //this.insertNewExpense = this.insertNewExpense.bind(this);
     return _this;
   }
 
   _createClass(App, [{
-    key: "handleTextChange",
-    value: function handleTextChange(e) {
-      if (e.target.name == "description") {
-        this.setState({
-          description: e.target.value
-        });
-      }
-      if (e.target.name == "amount") {
-        this.setState({
-          amount: e.target.value
-        });
-      }
-    }
-  }, {
     key: "onClick",
     value: function onClick(emo) {
       this.setState({
@@ -34182,7 +34168,7 @@ var App = function (_React$Component) {
       var result = "added";
       _axios2.default.post("/insert", querystring.stringify({
         desc: emot,
-        amount: 1014
+        amount: 1018
       }), {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
@@ -34250,7 +34236,7 @@ var App = function (_React$Component) {
                   circle: true,
                   className: "profile-pic", width: "50px", height: "50px",
                   onClick: function onClick() {
-                    this.onClick("Scared");
+                    _this2.onClick("Scared");
                   }
                 }),
                 _react2.default.createElement(
@@ -34267,7 +34253,7 @@ var App = function (_React$Component) {
                   circle: true,
                   className: "profile-pic", width: "50px", height: "50px",
                   onClick: function onClick() {
-                    this.onClick("Angry");
+                    _this2.onClick("Angry");
                   }
                 }),
                 _react2.default.createElement(
@@ -34284,7 +34270,7 @@ var App = function (_React$Component) {
                   circle: true,
                   className: "profile-pic", width: "50px", height: "50px",
                   onClick: function onClick() {
-                    this.onClick("VeryBad");
+                    _this2.onClick("VeryBad");
                   }
                 }),
                 _react2.default.createElement(
@@ -34301,7 +34287,7 @@ var App = function (_React$Component) {
                   circle: true,
                   className: "profile-pic", width: "50px", height: "50px",
                   onClick: function onClick() {
-                    this.onClick("Sad");
+                    _this2.onClick("Sad");
                   }
                 }),
                 _react2.default.createElement(
@@ -34318,7 +34304,7 @@ var App = function (_React$Component) {
                   circle: true,
                   className: "profile-pic", width: "50px", height: "50px",
                   onClick: function onClick() {
-                    this.onClick("Crying");
+                    _this2.onClick("Crying");
                   }
                 }),
                 _react2.default.createElement(
@@ -34327,16 +34313,6 @@ var App = function (_React$Component) {
                   "Crying"
                 )
               )
-            )
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "button-center" },
-            _react2.default.createElement("br", null),
-            _react2.default.createElement(
-              _reactBootstrap.Button,
-              { bsStyle: "success", bsSize: "small", onClick: this.onClick },
-              "Save Your Emotions"
             )
           )
         );
