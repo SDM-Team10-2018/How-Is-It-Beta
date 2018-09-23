@@ -18,12 +18,10 @@ mongoose.connect(
 app.use("/", router);
 module.exports = app;
 
-app.use(express.static(path.join(__dirname, "../client", "build")));
-
 // ...
 // Right before your app.listen(), add this:
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client", "build", "index.html"));
+  res.sendFile(path.join(__dirname, "../client", "index.html"));
 });
 
 app.listen();
