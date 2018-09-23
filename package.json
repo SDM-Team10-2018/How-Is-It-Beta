@@ -2,6 +2,7 @@
   "name": "testdev",
   "version": "0.1.0",
   "private": true,
+  "main": "index.js",
   "dependencies": {
     "axios": "^0.18.0",
     "babel-cli": "^6.26.0",
