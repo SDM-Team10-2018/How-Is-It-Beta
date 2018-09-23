@@ -2,7 +2,7 @@
 var express = require("express");
 var router = express.Router();
 var bodyParser = require("body-parser");
-var Expense = require("../../models/Expense");
+var Expense = require("../../models/Emotion");
 
 router.get("/", function(req, res) {
   res.render("index");

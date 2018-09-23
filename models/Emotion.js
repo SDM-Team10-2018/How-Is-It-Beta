@@ -1,8 +1,8 @@
-//models/Expense.js
+//models/Emotion.js
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var emotionSchema = new Schema({
   description: String,
-  amount: Number,
+  teamNumber: Number,
  });
-module.exports = mongoose.model('happy', emotionSchema, 'Jonathan');
+module.exports = mongoose.model('happy', emotionSchema, 'emotions');

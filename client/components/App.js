@@ -67,84 +67,73 @@ export default class App extends React.Component {
     if (this.state.messageFromServer == "") {
       return (
         <div>
-          <fieldset>
-            {/* <label for="description">Description:</label><input type="text" id="description" name="description" value={this.state.description} onChange={this.handleTextChange}></input> */}
-            <label for="amount">Amount:</label>
-            <input
-              type="number"
-              id="amount"
-              name="amount"
-              value={this.state.amount}
-              onChange={this.handleTextChange}
-            />
-          </fieldset>
+          
           <Grid>
-            <h2>Happiness Tracker</h2>
+            <h4>Team Number :10</h4>
             <Jumbotron>
               <p>Hey, How are you feeling?</p>
             </Jumbotron>
             <Row className="show-grid text-center">
-              <Col xs={12} sm={4} className="peerson-wrapper">
+              <Col xs={12} sm={2} className="peerson-wrapper">
                 <Image
                   id="description"
                   src="images/VeryHappy.jpg"
-                  circle
-                  className="profile-pic"
+                  circle className="profile-pic" width="50px" height="50px"
                   onClick={() => {
                     this.onClick("Very Happy");
                   }}
                 />
                 <h5>Very Happy</h5>
               </Col>
-              <Col xs={12} sm={4} className="person-wrapper">
+              <Col xs={12} sm={2} className="person-wrapper">
                 <Image
                   src="images/Scared.jpg"
                   circle
-                  className="profile-pic"
+                  className="profile-pic" width="50px" height="50px"
                   onClick={function() {
                     this.onClick("Scared");
                   }}
                 />
                 <h5>Scared</h5>
               </Col>
-              <Col xs={12} sm={4} className="person-wrapper">
+              <Col xs={12} sm={2} className="person-wrapper">
                 <Image
                   src="images/Angry.jpg"
                   circle
-                  className="profile-pic"
+                  className="profile-pic" width="50px" height="50px"
                   onClick={function() {
                     this.onClick("Angry");
                   }}
                 />
                 <h5>Angry</h5>
               </Col>
-              <Col xs={12} sm={4} className="person-wrapper">
+              <Col xs={12} sm={2} className="person-wrapper">
                 <Image
                   src="images/VeryBad.jpg"
                   circle
-                  className="profile-pic"
+                  className="profile-pic" width="50px" height="50px"
                   onClick={function() {
                     this.onClick("VeryBad");
                   }}
                 />
                 <h5>Very Bad</h5>
               </Col>
-              <Col xs={12} sm={4} className="person-wrapper">
+              <Col xs={12} sm={2} className="person-wrapper">
                 <Image
                   src="images/Sad.jpg"
                   circle
-                  className="profile-pic"
+                  className="profile-pic" width="50px" height="50px"
                   onClick={function() {
                     this.onClick("Sad");
                   }}
                 />
                 <h5>Sad</h5>
               </Col>
-              <Col xs={12} sm={4} className="person-wrapper">
+              <Col xs={12} sm={2} className="person-wrapper">
                 <Image
                   src="images/Crying.jpg"
                   circle
-                  className="profile-pic"
+                  className="profile-pic" width="50px" height="50px"
                   onClick={function() {
                     this.onClick("Crying");
                   }}
@@ -157,7 +146,7 @@ export default class App extends React.Component {
           <div className="button-center">
             <br />
             <Button bsStyle="success" bsSize="small" onClick={this.onClick}>
-              Add New Expense
+              Save Your Emotions
             </Button>
           </div>
         </div>

@@ -34206,28 +34206,12 @@ var App = function (_React$Component) {
           "div",
           null,
           _react2.default.createElement(
-            "fieldset",
-            null,
-            _react2.default.createElement(
-              "label",
-              { "for": "amount" },
-              "Amount:"
-            ),
-            _react2.default.createElement("input", {
-              type: "number",
-              id: "amount",
-              name: "amount",
-              value: this.state.amount,
-              onChange: this.handleTextChange
-            })
-          ),
-          _react2.default.createElement(
             _reactBootstrap.Grid,
             null,
             _react2.default.createElement(
-              "h2",
+              "h4",
               null,
-              "Happiness Tracker"
+              "Team Number :10"
             ),
             _react2.default.createElement(
               _reactBootstrap.Jumbotron,
@@ -34243,12 +34227,11 @@ var App = function (_React$Component) {
               { className: "show-grid text-center" },
               _react2.default.createElement(
                 _reactBootstrap.Col,
-                { xs: 12, sm: 4, className: "peerson-wrapper" },
+                { xs: 12, sm: 2, className: "peerson-wrapper" },
                 _react2.default.createElement(_reactBootstrap.Image, {
                   id: "description",
                   src: "images/VeryHappy.jpg",
-                  circle: true,
-                  className: "profile-pic",
+                  circle: true, className: "profile-pic", width: "50px", height: "50px",
                   onClick: function onClick() {
                     _this2.onClick("Very Happy");
                   }
@@ -34261,11 +34244,11 @@ var App = function (_React$Component) {
               ),
               _react2.default.createElement(
                 _reactBootstrap.Col,
-                { xs: 12, sm: 4, className: "person-wrapper" },
+                { xs: 12, sm: 2, className: "person-wrapper" },
                 _react2.default.createElement(_reactBootstrap.Image, {
                   src: "images/Scared.jpg",
                   circle: true,
-                  className: "profile-pic",
+                  className: "profile-pic", width: "50px", height: "50px",
                   onClick: function onClick() {
                     this.onClick("Scared");
                   }
@@ -34278,11 +34261,11 @@ var App = function (_React$Component) {
               ),
               _react2.default.createElement(
                 _reactBootstrap.Col,
-                { xs: 12, sm: 4, className: "person-wrapper" },
+                { xs: 12, sm: 2, className: "person-wrapper" },
                 _react2.default.createElement(_reactBootstrap.Image, {
                   src: "images/Angry.jpg",
                   circle: true,
-                  className: "profile-pic",
+                  className: "profile-pic", width: "50px", height: "50px",
                   onClick: function onClick() {
                     this.onClick("Angry");
                   }
@@ -34295,11 +34278,11 @@ var App = function (_React$Component) {
               ),
               _react2.default.createElement(
                 _reactBootstrap.Col,
-                { xs: 12, sm: 4, className: "person-wrapper" },
+                { xs: 12, sm: 2, className: "person-wrapper" },
                 _react2.default.createElement(_reactBootstrap.Image, {
                   src: "images/VeryBad.jpg",
                   circle: true,
-                  className: "profile-pic",
+                  className: "profile-pic", width: "50px", height: "50px",
                   onClick: function onClick() {
                     this.onClick("VeryBad");
                   }
@@ -34312,11 +34295,11 @@ var App = function (_React$Component) {
               ),
               _react2.default.createElement(
                 _reactBootstrap.Col,
-                { xs: 12, sm: 4, className: "person-wrapper" },
+                { xs: 12, sm: 2, className: "person-wrapper" },
                 _react2.default.createElement(_reactBootstrap.Image, {
                   src: "images/Sad.jpg",
                   circle: true,
-                  className: "profile-pic",
+                  className: "profile-pic", width: "50px", height: "50px",
                   onClick: function onClick() {
                     this.onClick("Sad");
                   }
@@ -34329,11 +34312,11 @@ var App = function (_React$Component) {
               ),
               _react2.default.createElement(
                 _reactBootstrap.Col,
-                { xs: 12, sm: 4, className: "person-wrapper" },
+                { xs: 12, sm: 2, className: "person-wrapper" },
                 _react2.default.createElement(_reactBootstrap.Image, {
                   src: "images/Crying.jpg",
                   circle: true,
-                  className: "profile-pic",
+                  className: "profile-pic", width: "50px", height: "50px",
                   onClick: function onClick() {
                     this.onClick("Crying");
                   }
@@ -34353,7 +34336,7 @@ var App = function (_React$Component) {
             _react2.default.createElement(
               _reactBootstrap.Button,
               { bsStyle: "success", bsSize: "small", onClick: this.onClick },
-              "Add New Expense"
+              "Save Your Emotions"
             )
           )
         );
