@@ -1,7 +1,7 @@
 //client/components/App.js
 import React from "react";
 import axios from "axios";
-import { Grid, Button, Row, Col, Image, Jumbotron } from "react-bootstrap";
+import { Grid, Button, Row, Col, Image, Jumbotron, Navbar } from "react-bootstrap";
 var querystring = require("querystring");
 export default class App extends React.Component {
   constructor() {
