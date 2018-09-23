@@ -5,9 +5,9 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var app = express();
 var mongoose = require("mongoose");
-app.set("view engine", "ejs");
+app.set("view engine", "html");
 app.set("views", path.join(__dirname, "../client"));
-app.use(express.static(path.join(__dirname, "../client", "build")));
+app.use(express.static(path.join(__dirname, "../client")));
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: false }));
 
@@ -18,10 +18,12 @@ mongoose.connect(
 app.use("/", router);
 module.exports = app;
 
+app.use(express.static(path.join(__dirname, "../client", "build")));
+
 // ...
 // Right before your app.listen(), add this:
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.ejs"));
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 app.listen();
