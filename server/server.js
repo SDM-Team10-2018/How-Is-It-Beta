@@ -7,7 +7,7 @@ var app = express();
 var mongoose = require("mongoose");
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../client"));
-app.use(express.static(path.join(__dirname, "../client")));
+app.use(express.static(path.join(__dirname, "../client", "build")));
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: false }));
 
@@ -17,12 +17,6 @@ mongoose.connect(
 );
 app.use("/", router);
 module.exports = app;
-
-// ... other imports
-const path = require("path");
-
-// ... other app.use middleware setups
-app.use(express.static(path.join(__dirname, "client", "build")));
 
 // ...
 // Right before your app.listen(), add this:
