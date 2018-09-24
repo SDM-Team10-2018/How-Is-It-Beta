@@ -55,3 +55,40 @@ text-align:right;
   height: 10 px;
   border-color: rgb(146, 28, 28)
 }
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 10s linear;
+  height: 60px;
+}
+
+.App-header {
+  background-color: rgb(196, 199, 11);
+  height: 100px;
+  padding: 40px;
+  color: rgba(0, 0, 0, 0.925);
+}
+
+.App-title {
+  font-size: 2em;
+}
+.App-team {
+  text-align-last: right;
+}
+
+.App-intro {
+  font-size: x-large;
+}
+
+
+@keyframes jump {
+  0%   {transform: translate3d(0,0,0) scale3d(1,1,1);}
+  40%  {transform: translate3d(0,30%,0) scale3d(.7,1.5,1);}
+  100% {transform: translate3d(0,100%,0) scale3d(1.5,.7,1);}
+}
+.jump {
+  transform-origin: 50% 50%;
+  animation: jump .5s linear alternate infinite;
+}

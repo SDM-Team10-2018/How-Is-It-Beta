@@ -54,15 +54,25 @@ export default class App extends React.Component {
 
   render() {
     if (this.state.messageFromServer == "") {
-      return (
+      return ([
+        
+        <div className="App">
+        <div>
+        <header className="App-header">
+        {/* <img src="images/cutmypic1.jpg" className="jump" alt="logo" /> */}
+        {/* <img src="images/emoticon.jpg" className="jump" alt="logo" className="profile-pic"/> */}
+       {/*  <img src="images/cutmypic.jpg" className="jump" alt="logo" /> */}
+          <h1 className="App-title">HOW.IS.IT :)</h1>
+          <h2 className="App-team">Team 10</h2>
+        </header>
+        </div>,
         <div>
           
           <Grid>
-            <h4>Team Number :10</h4>
-            <Jumbotron>
+            
+            <Jumbotron >
               <p>Hey, How are you feeling?</p>
-            </Jumbotron>
-            <Row className="show-grid text-center">
+              <Row className="show-grid text-center">
               <Col xs={12} sm={2} className="peerson-wrapper">
                 <Image
                   id="description"
@@ -130,6 +140,8 @@ export default class App extends React.Component {
                 <h5>Crying</h5>
               </Col>
             </Row>
+            </Jumbotron>
+           
           </Grid>
 
           {/* <div className="button-center">
@@ -141,7 +153,8 @@ export default class App extends React.Component {
             </Button>
           </div> */}
         </div>
-      );
+        </div>
+      ]);
     } else {
       return (
         <div>

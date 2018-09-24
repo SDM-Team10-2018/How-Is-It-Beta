@@ -34188,134 +34188,152 @@ var App = function (_React$Component) {
       var _this2 = this;
 
       if (this.state.messageFromServer == "") {
-        return _react2.default.createElement(
+        return [_react2.default.createElement(
           "div",
-          null,
+          { className: "App" },
           _react2.default.createElement(
-            _reactBootstrap.Grid,
+            "div",
             null,
             _react2.default.createElement(
-              "h4",
-              null,
-              "Team Number :10"
-            ),
-            _react2.default.createElement(
-              _reactBootstrap.Jumbotron,
-              null,
+              "header",
+              { className: "App-header" },
               _react2.default.createElement(
-                "p",
-                null,
-                "Hey, How are you feeling?"
+                "h1",
+                { className: "App-title" },
+                "HOW.IS.IT :)"
+              ),
+              _react2.default.createElement(
+                "h2",
+                { className: "App-team" },
+                "Team 10"
               )
-            ),
+            )
+          ),
+          ",",
+          _react2.default.createElement(
+            "div",
+            null,
             _react2.default.createElement(
-              _reactBootstrap.Row,
-              { className: "show-grid text-center" },
+              _reactBootstrap.Grid,
+              null,
               _react2.default.createElement(
-                _reactBootstrap.Col,
-                { xs: 12, sm: 2, className: "peerson-wrapper" },
-                _react2.default.createElement(_reactBootstrap.Image, {
-                  id: "description",
-                  src: "images/VeryHappy.jpg",
-                  circle: true, className: "profile-pic", width: "50px", height: "50px",
-                  onClick: function onClick() {
-                    _this2.onClick("Very Happy");
-                  }
-                }),
+                _reactBootstrap.Jumbotron,
+                null,
                 _react2.default.createElement(
-                  "h5",
+                  "p",
                   null,
-                  "Very Happy"
-                )
-              ),
-              _react2.default.createElement(
-                _reactBootstrap.Col,
-                { xs: 12, sm: 2, className: "person-wrapper" },
-                _react2.default.createElement(_reactBootstrap.Image, {
-                  src: "images/Scared.jpg",
-                  circle: true,
-                  className: "profile-pic", width: "50px", height: "50px",
-                  onClick: function onClick() {
-                    _this2.onClick("Scared");
-                  }
-                }),
+                  "Hey, How are you feeling?"
+                ),
                 _react2.default.createElement(
-                  "h5",
-                  null,
-                  "Scared"
-                )
-              ),
-              _react2.default.createElement(
-                _reactBootstrap.Col,
-                { xs: 12, sm: 2, className: "person-wrapper" },
-                _react2.default.createElement(_reactBootstrap.Image, {
-                  src: "images/Angry.jpg",
-                  circle: true,
-                  className: "profile-pic", width: "50px", height: "50px",
-                  onClick: function onClick() {
-                    _this2.onClick("Angry");
-                  }
-                }),
-                _react2.default.createElement(
-                  "h5",
-                  null,
-                  "Angry"
-                )
-              ),
-              _react2.default.createElement(
-                _reactBootstrap.Col,
-                { xs: 12, sm: 2, className: "person-wrapper" },
-                _react2.default.createElement(_reactBootstrap.Image, {
-                  src: "images/VeryBad.jpg",
-                  circle: true,
-                  className: "profile-pic", width: "50px", height: "50px",
-                  onClick: function onClick() {
-                    _this2.onClick("VeryBad");
-                  }
-                }),
-                _react2.default.createElement(
-                  "h5",
-                  null,
-                  "Very Bad"
-                )
-              ),
-              _react2.default.createElement(
-                _reactBootstrap.Col,
-                { xs: 12, sm: 2, className: "person-wrapper" },
-                _react2.default.createElement(_reactBootstrap.Image, {
-                  src: "images/Sad.jpg",
-                  circle: true,
-                  className: "profile-pic", width: "50px", height: "50px",
-                  onClick: function onClick() {
-                    _this2.onClick("Sad");
-                  }
-                }),
-                _react2.default.createElement(
-                  "h5",
-                  null,
-                  "Sad"
-                )
-              ),
-              _react2.default.createElement(
-                _reactBootstrap.Col,
-                { xs: 12, sm: 2, className: "person-wrapper" },
-                _react2.default.createElement(_reactBootstrap.Image, {
-                  src: "images/Crying.jpg",
-                  circle: true,
-                  className: "profile-pic", width: "50px", height: "50px",
-                  onClick: function onClick() {
-                    _this2.onClick("Crying");
-                  }
-                }),
-                _react2.default.createElement(
-                  "h5",
-                  null,
-                  "Crying"
+                  _reactBootstrap.Row,
+                  { className: "show-grid text-center" },
+                  _react2.default.createElement(
+                    _reactBootstrap.Col,
+                    { xs: 12, sm: 2, className: "peerson-wrapper" },
+                    _react2.default.createElement(_reactBootstrap.Image, {
+                      id: "description",
+                      src: "images/VeryHappy.jpg",
+                      circle: true, className: "profile-pic", width: "50px", height: "50px",
+                      onClick: function onClick() {
+                        _this2.onClick("Very Happy");
+                      }
+                    }),
+                    _react2.default.createElement(
+                      "h5",
+                      null,
+                      "Very Happy"
+                    )
+                  ),
+                  _react2.default.createElement(
+                    _reactBootstrap.Col,
+                    { xs: 12, sm: 2, className: "person-wrapper" },
+                    _react2.default.createElement(_reactBootstrap.Image, {
+                      src: "images/Scared.jpg",
+                      circle: true,
+                      className: "profile-pic", width: "50px", height: "50px",
+                      onClick: function onClick() {
+                        _this2.onClick("Scared");
+                      }
+                    }),
+                    _react2.default.createElement(
+                      "h5",
+                      null,
+                      "Scared"
+                    )
+                  ),
+                  _react2.default.createElement(
+                    _reactBootstrap.Col,
+                    { xs: 12, sm: 2, className: "person-wrapper" },
+                    _react2.default.createElement(_reactBootstrap.Image, {
+                      src: "images/Angry.jpg",
+                      circle: true,
+                      className: "profile-pic", width: "50px", height: "50px",
+                      onClick: function onClick() {
+                        _this2.onClick("Angry");
+                      }
+                    }),
+                    _react2.default.createElement(
+                      "h5",
+                      null,
+                      "Angry"
+                    )
+                  ),
+                  _react2.default.createElement(
+                    _reactBootstrap.Col,
+                    { xs: 12, sm: 2, className: "person-wrapper" },
+                    _react2.default.createElement(_reactBootstrap.Image, {
+                      src: "images/VeryBad.jpg",
+                      circle: true,
+                      className: "profile-pic", width: "50px", height: "50px",
+                      onClick: function onClick() {
+                        _this2.onClick("VeryBad");
+                      }
+                    }),
+                    _react2.default.createElement(
+                      "h5",
+                      null,
+                      "Very Bad"
+                    )
+                  ),
+                  _react2.default.createElement(
+                    _reactBootstrap.Col,
+                    { xs: 12, sm: 2, className: "person-wrapper" },
+                    _react2.default.createElement(_reactBootstrap.Image, {
+                      src: "images/Sad.jpg",
+                      circle: true,
+                      className: "profile-pic", width: "50px", height: "50px",
+                      onClick: function onClick() {
+                        _this2.onClick("Sad");
+                      }
+                    }),
+                    _react2.default.createElement(
+                      "h5",
+                      null,
+                      "Sad"
+                    )
+                  ),
+                  _react2.default.createElement(
+                    _reactBootstrap.Col,
+                    { xs: 12, sm: 2, className: "person-wrapper" },
+                    _react2.default.createElement(_reactBootstrap.Image, {
+                      src: "images/Crying.jpg",
+                      circle: true,
+                      className: "profile-pic", width: "50px", height: "50px",
+                      onClick: function onClick() {
+                        _this2.onClick("Crying");
+                      }
+                    }),
+                    _react2.default.createElement(
+                      "h5",
+                      null,
+                      "Crying"
+                    )
+                  )
                 )
               )
             )
           )
-        );
+        )];
       } else {
         return _react2.default.createElement(
           "div",
